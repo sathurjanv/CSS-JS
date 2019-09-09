@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="questionsArea">
+        <!-- Questions get loaded here -->
+    </div>
+
+    <div id="resultsArea">
+        <!-- Questions get loaded here -->
+    </div>
+
+    <script>
+        let questions = [
+            {
+                question: "Who is the founder of Face book?",
+                options: ["Bill Gates", "Mark", "Steve Jobs"],
+                correctanswer: 1
+            },
+            {
+                question: "Who is the founder of google?",
+                options: ["Larry page", "Sundar Phichai", "Steve Jobs"],
+                correctanswer: 0
+            }, {
+                question: "Who is the founder of Micosoft?",
+                options: ["Satya Natalya", "Mark", "Bill Gates"],
+                correctanswer: 2
+            }
+        ];
+
+
+        let questionStr = `<form name='questionform' onsubmit='return checkAnswer()'><ol>`;
+        questions.forEach(function (question, questionIndex) {
+            let optionstr = "<ul>";
+            question.options.forEach(function (option, index) {
+                optionstr = optionstr + `<li><input type='radio' name='ques-${questionIndex}' value=${index} /> ${option}</li>`
+            });
+            optionstr = optionstr + "</ul>";
+
+            questionStr = questionStr + `<li>
+            ${question.question}
+            ${optionstr}
+           </li>`
+        });
+        questionStr = questionStr + `<input type='submit' value="Check Answer"/>`;
+        questionStr = questionStr + `</form></ol>`;
+
+
+        let correctAnswerArray = new Array();
+        function checkAnswer() {
+            correctAswerArray = [];
+            for (let i = 0; i < questions.length; i++) {
+                let answeredArr = document.forms['questionform'][`ques-${i}`].value;
+                correctAnswerArray.push(answeredArr);
+            }
+            console.log(correctAnswerArray);
+            printResult();
+            return false;
+        }
+
+
+
+        function printResult() {
+            let result = `<ul>`;
+            questions.forEach(function (question, index) {
+                if (question.correctanswer == correctAnswerArray[index]) {
+                    result = result + `<li style='color:green'>Question ${index + 1} correct </li>`;
+                } else {
+                    result = result + `<li style='color:red'>Question ${index + 1} In correct </li>`;
+                }
+            });
+            result = result + `</ul>`;
+            document.getElementById("resultsArea").innerHTML = result;
+        }
+        document.getElementById("questionsArea").innerHTML = questionStr;
+    </script>
+
+</body>
+
+</html>

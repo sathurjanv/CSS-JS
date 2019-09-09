@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        #divCalculator {
+            margin: auto;
+            padding-top: 30px;
+            padding-left: 30px;
+            height: 300px;
+            width: 400px;
+            background-color: navy;
+            color: #fff;
+            font-size: 20px;
+            border-radius: 50px;
+            border: 5px solid orangered;
+        }
+
+        #divCalculator ul {
+            list-style: none;
+        }
+
+        #divCalculator .btn {
+            margin: auto;
+            width: 50%;
+            height: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="divCalculator">
+        <form name="addForm" onsubmit="return addNumber();">
+            <label>Enter Number 1 :</label>
+            <input type="text" id="txt1" name="num1" />
+
+            <br />
+            <label>Enter Number 2 :</label>
+            <input type="text" id="txt2" name="num2" />
+
+            <br />
+
+            <ul>
+                <li><input type='radio' name="opreation" value="add" /> Add</li>
+                <li><input type='radio' name="opreation" value="sub" /> Subtract</li>
+                <li><input type='radio' name="opreation" value="mul" /> Multiply</li>
+                <li><input type='radio' name="opreation" value="divide" /> Divide</li>
+
+            </ul>
+
+            <br />
+            <input type="submit" value="add" class="btn" />
+        </form>
+    </div>
+
+    <script>
+        function addNumber() {
+
+
+            let num1 = Number(document.forms["addForm"]["num1"].value);
+            let num2 = Number(document.forms["addForm"]["num2"].value);
+
+            let operation = document.forms["addForm"]["opreation"].value;
+
+            let answer = null;
+            if (operation == "add") {
+                answer = num1 + num2;
+                alert("Answer when Added is :" + answer);
+            } else if (operation == "sub") {
+                answer = num1 - num2;
+                alert("Answer when Subtracted is :" + answer);
+            } else if (operation == "mul") {
+                answer = num1 * num2;
+                alert("Answer when Multiplied is :" + answer);
+
+            } else if (operation == "divide") {
+                answer = num1 / num2;
+                alert("Answer when Divided is :" + answer);
+            }
+
+
+            return false;
+        }
+    </script>
+
+</body>
+
+</html>

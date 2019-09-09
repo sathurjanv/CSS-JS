@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <label>Enter Number 1 :</label>
+    <input type="text/" id="txt1">
+
+    <label>Enter Number 2 :</label>
+    <input type="text/" id="txt2">
+
+    <button onclick="addNumber()">Add</button>
+
+
+    <script>
+        function addNumber() {
+            let num1 = parseInt(document.getElementById("txt1").value);
+            let num2 = Number(document.getElementById("txt2").value);
+
+            let ans = num1 + num2;
+            alert("answer is" + ans);
+        }
+    </script>
+</body>
+
+</html>

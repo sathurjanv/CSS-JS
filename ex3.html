@@ -1,0 +1,42 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+
+	<script>
+
+		let students = [
+			{ name: 'sasi', contact: '0121456123' },
+			{ name: 'vinojan', contact: '0124561278' },
+			{ name: 'fathima', contact: '0777456123' }]
+
+		console.log(students)
+
+		document.write("<table border=1>");
+		document.write("<tr><th>Name</th><th>Contact Number</th></tr>")
+
+		for (let i = 0; i < students.length; i++) {
+
+			var color = 'yellow';
+			if (i % 2 == 0) {
+				color = 'gray';
+			}
+
+			document.write(`<tr bgcolor=${color}>`);
+			document.write(`<td>${students[i].name}</td>`);
+			document.write(`<td>${students[i].contact}</td>`)
+			document.write("</tr>");
+		}
+		document.write("</table>");
+
+
+	</script>
+
+
+</body>
+
+</html>
